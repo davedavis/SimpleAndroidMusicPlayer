@@ -1,8 +1,8 @@
 package com.echofly.simplemusicplayer;
 
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,11 +17,8 @@ public class MainActivity extends AppCompatActivity {
         Button playButton = findViewById(R.id.play);
         Button pauseButton = findViewById(R.id.pause);
 
-
+        // Initialize the MediaPlayer object.
         final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.song);
-
-
-
 
         // Set an OnClickListener for the play button
         playButton.setOnClickListener(new View.OnClickListener() {
@@ -33,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         // Set an OnClickListener for the play button
         pauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,10 +39,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
     }
-
 
 }
