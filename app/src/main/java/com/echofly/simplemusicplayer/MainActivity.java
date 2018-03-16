@@ -30,9 +30,15 @@ public class MainActivity extends AppCompatActivity {
                 // Use the MediaPlayer to play the local song.
                 mediaPlayer.start();
 
+                // Testing skip artifact when looping.
+                // Todo: Remove loop of release method.
+                mediaPlayer.setLooping(true);
+
                 // Set an onCompletionListner on the mediaPlayer object (after it starts) by calling the setOnCompletionListener
                 // method on the object and passing it an OnCompletionListener object as defined in docs by initializing an
                 // anonymous class in-line. Then define the onCompletion callback method and show a toast.
+
+                // ToDo: Research why there's a skip when looping.
                 mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mediaPlayer) {
