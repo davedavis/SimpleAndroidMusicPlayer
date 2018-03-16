@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,14 +20,25 @@ public class MainActivity extends AppCompatActivity {
         Button pauseButton = findViewById(R.id.pause);
 
         // Initialize the MediaPlayer object.
-        final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.song);
+        final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.sound3);
 
         // Set an OnClickListener for the play button
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //use the MediaPlayer to play the local song.
+
+                // Use the MediaPlayer to play the local song.
                 mediaPlayer.start();
+
+                // Set an onCompletionListner on the mediaPlayer object (after it starts) by calling the setOnCompletionListener
+                // method on the object and passing it an OnCompletionListener object as defined in docs by initializing an
+                // anonymous class in-line. Then define the onCompletion callback method and show a toast.
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mediaPlayer) {
+                        Toast.makeText(MainActivity.this, "Song finished!", Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
 
@@ -41,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 mediaPlayer.pause();
             }
         });
+
 
     }
 
